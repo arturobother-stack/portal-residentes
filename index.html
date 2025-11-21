@@ -8,23 +8,25 @@
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(to bottom right, #eef2f7, #d9e2ec);
+            background: linear-gradient(to bottom right, #f4f7fb, #e2e8f0);
             padding: 25px;
             text-align: center;
+            color: #1f2937;
         }
 
         h1 {
-            color: #003366;
+            color: #1e3a8a;
             margin-bottom: 35px;
             font-size: 32px;
+            font-weight: 700;
         }
 
         .contenedor {
-            max-width: 820px;
+            max-width: 900px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
         }
 
         .boton {
@@ -33,47 +35,81 @@
             align-items: center;
             justify-content: center;
             background: white;
-            padding: 22px;
-            border-radius: 16px;
+            padding: 24px;
+            border-radius: 18px;
             text-decoration: none;
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 600;
-            color: #004aad;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-            transition: all 0.25s ease-in-out;
+            color: #0f52ba;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+            transition: all 0.28s ease-in-out;
             border: 2px solid transparent;
         }
 
         .boton:hover {
-            transform: translateY(-5px);
-            border-color: #004aad;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            transform: translateY(-6px);
+            border-color: #0f52ba;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
         }
 
         .emoji {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 45px;
+            margin-bottom: 12px;
         }
 
-        footer {
-            margin-top: 45px;
-            color: #555;
-            font-size: 14px;
-            opacity: 0.8;
+        .disabled {
+            background: #f1f5f9;
+            color: #94a3b8;
+            border: 2px dashed #cbd5e1;
+            cursor: not-allowed;
+            box-shadow: none;
         }
 
-        .alerta {
-            margin-top: 35px;
-            background: #fff8e1;
-            border-left: 5px solid #f4c430;
-            padding: 15px;
+        .disabled:hover {
+            transform: none;
+            border-color: #cbd5e1;
+            box-shadow: none;
+        }
+
+        .tag-prox {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .lock {
+            font-size: 22px;
+            margin-top: 6px;
+            color: #64748b;
+        }
+
+        .alerta, .alerta2 {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 14px 16px;
             border-radius: 10px;
             font-size: 15px;
             text-align: left;
-            max-width: 820px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .alerta {
+            background: #fff8e1;
+            border-left: 5px solid #f4c430;
             color: #7a5f00;
+        }
+
+        .alerta2 {
+            background:#fffbe6;
+            border-left:4px solid #facc15;
+            color:#6b5e00;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #555;
+            font-size: 14px;
+            opacity: 0.85;
         }
     </style>
 </head>
@@ -84,6 +120,7 @@
 
     <div class="contenedor">
 
+        <!-- 🔐 Autorizaciones de Ingreso (ACTIVO) -->
         <a class="boton"
            href="https://app.kontrolid.com/app/myWork/webForm/id/u3edf4ba9-f75b-4531-b504-63395577bb88/s2305_70324"
            target="_blank">
@@ -91,11 +128,15 @@
             Autorizaciones de Ingreso
         </a>
 
-        <a class="boton" href="#" target="_blank">
+        <!-- 🏡 Uso de Amenidades (INACTIVO) -->
+        <div class="boton disabled">
             <div class="emoji">🏡</div>
             Uso de Amenidades
-        </a>
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
 
+        <!-- 🧍 Actualización de Datos (ACTIVO) -->
         <a class="boton"
            href="https://app.kontrolid.com/app/myWork/webForm/id/u890b11dd-61f4-41d2-a3b6-54d7ee0c1cc1/s2425_70747"
            target="_blank">
@@ -103,15 +144,61 @@
             Actualización de Datos
         </a>
 
+        <!-- 🧾 PQRS (INACTIVO) -->
+        <div class="boton disabled">
+            <div class="emoji">🧾</div>
+            PQRS
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
+
+        <!-- ⚙️ Reporte de Daños (INACTIVO) -->
+        <div class="boton disabled">
+            <div class="emoji">⚙️</div>
+            Reporte de Daños
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
+
+        <!-- 🧰 Solicitud de Mantenimiento (INACTIVO) -->
+        <div class="boton disabled">
+            <div class="emoji">🧰</div>
+            Solicitud de Mantenimiento
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
+
+        <!-- 🧳 Solicitud de Mudanza (INACTIVO) -->
+        <div class="boton disabled">
+            <div class="emoji">🧳</div>
+            Solicitud de Mudanza
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
+
+        <!-- 🔑 Actualización de Contraseña (INACTIVO) -->
+        <div class="boton disabled">
+            <div class="emoji">🔑</div>
+            Actualización de Contraseña
+            <div class="lock">🔒</div>
+            <div class="tag-prox">Próximamente</div>
+        </div>
+
     </div>
 
     <div class="alerta">
         ⚠️ <strong>Importante:</strong> No compartas tu clave dinámica con terceros.
-        Esta clave es personal y necesaria para realizar solicitudes y autorizaciones dentro de la copropiedad.
+        Esta clave es personal y necesaria para realizar solicitudes dentro de la copropiedad.
+    </div>
+
+    <div class="alerta2">
+        ⚠️ <strong>Importante:</strong> Para hacer uso de los beneficios y servicios de la copropiedad,
+        la unidad debe encontrarse <strong>al día en los pagos de administración</strong>.  
+        Algunas funciones pueden estar restringidas mientras exista mora.
     </div>
 
     <footer>
-        © Portal de Residentes — Administración General
+        Portal de Servicios — Administración de Propiedad Horizontal
     </footer>
 
 </body>
